@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  database: clireg
+  username: clireg
+  password: secret
+  host: localhost
+  port: 3306
+  encoding: utf8

@@ -1,0 +1,22 @@
+.spacer
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.description
+{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	max-width:150px;
+}
+
+span#rurl
+{
+	font-weight:bold;
+}
+
+span#sec-left
+{
+	font-weight:bold;
+}

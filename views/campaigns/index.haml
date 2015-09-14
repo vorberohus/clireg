@@ -1,0 +1,54 @@
+%a{href: 'campaigns/new'}
+  .btn.btn-primary
+    Создать
+.spacer
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %td
+        id
+      %td
+        Название
+      %td
+        Редирект
+      %td
+        Внешняя ссылка
+      %td
+        Описание
+      %td
+        Активна?
+      %td
+        Кликов
+      %td
+        Действие
+  %tbody
+    - @campaigns.each do |campaign|
+      %tr
+        %td
+          = campaign.id
+        %td
+          %a(href="campaigns/#{campaign.id}/edit")
+            = campaign.title
+        %td
+          = campaign.rurl
+        %td
+          - ourl = url "campaigns/#{campaign.id}/visit"
+          %a(href = ourl)
+            = ourl
+        %td.description
+          = campaign.description
+        %td
+          - if campaign.active
+            Да
+          -  else
+            Нет
+        %td
+          - if campaign.clicks
+            = campaign.clicks
+          - else
+            Нет
+        %td
+          %form{action:"campaigns/#{campaign.id}/delete", method:'post'}
+            %button.btn.btn-primary{onclick:"return confirm('Вы уверены?')"}
+              Удалить
+

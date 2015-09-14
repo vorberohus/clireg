@@ -1,0 +1,10 @@
+.jumbotron.spacer
+  %h2
+    Спасибо за клик! Вы будете переадресованы на страницу рекламодателя 
+    %span#rurl
+      = @campaign.rurl
+    через
+    %span#sec-left
+      5
+    секунд.
+%script(src='/js/countdown.js')

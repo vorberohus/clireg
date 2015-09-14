@@ -1,0 +1,29 @@
+- if @campaign.errors.size > 0
+  .alert.alert-danger
+    - @campaign.errors.messages.each do |field, errors|
+      %span
+        = field
+        - errors.each do |error|
+          = error
+
+%form.form{action: "#{if @campaign.new_record? then '/campaigns/new' else "/campaigns/#{@campaign.id}" end}", method: 'post'}
+  .input-group
+    %label(for='title')
+      Название
+    %input#title.form-control{name: 'campaign[title]', value: "#{@campaign.title}"}
+  .input-group
+    %label(for='rurl')
+      URL
+    %input#rurl.form-control{name: 'campaign[rurl]', value: "#{@campaign.rurl}"}
+  .input-group
+    %label(for='description')
+      Описание
+    %textarea#description.form-control{name: 'campaign[description]'}
+      = @campaign.description
+  .input-group
+    %label(for='active')
+      Активна?
+    %input#active{name: 'campaign[active]', type: 'hidden', value: "0", checked: true}
+    %input#active{name: 'campaign[active]', type: 'checkbox', value: "1", checked: @campaign.active}
+  .input-group
+    %input.btn.btn-primary{type: 'submit', value: "#{if @campaign.new_record? then 'Создать' else 'Сохранить' end}"}
