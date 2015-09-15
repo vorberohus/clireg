@@ -7,4 +7,4 @@ Click registrator
 
 3) Run migrations `bundle exec rake db:migrate`
 
-4) rackup
+4) `rackup`
